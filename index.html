@@ -2,262 +2,306 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Vishwa 💗</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Vishwa</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #fff0f5, #ffe4ec);
-            color: #660033;
-            font-family: Georgia, serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            text-align: center;
-            transition: opacity 1s ease;
-        }
+<style>
 
-        .container {
-            padding: 20px;
-        }
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #fff0f5, #ffe4ec);
+    color: #660033;
+    font-family: Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+    transition: opacity 1s ease;
+}
 
-        h1 {
-            font-size: clamp(22px, 5vw, 36px);
-            margin-bottom: 30px;
-        }
+/* Container */
+.container {
+    padding: 20px;
+}
 
-        button {
-            padding: 12px 25px;
-            font-size: clamp(16px, 4vw, 18px);
-            margin: 10px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
+h1 {
+    font-size: clamp(22px, 5vw, 36px);
+    margin-bottom: 30px;
+}
 
-        #yesBtn {
-            background-color: #ff69b4;
-            color: white;
-        }
+/* Buttons */
+button {
+    padding: 12px 25px;
+    font-size: clamp(16px, 4vw, 18px);
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
 
-        #noBtn {
-            background-color: #ffb6d9;
-            color: white;
-            position: fixed;
-        }
+#yesBtn {
+    background-color: #ff69b4;
+    color: white;
+}
 
-        /* Pink Heart Style */
-        .pink-heart {
-            color: #ff69b4;
-        }
+#noBtn {
+    background-color: #ffb6d9;
+    color: white;
+    position: fixed;
+}
 
-        /* BIG HEART */
-        .big-heart {
-            font-size: clamp(80px, 18vw, 140px);
-            opacity: 0;
-            animation: fadeHeart 2s ease forwards, pulse 2s ease-in-out infinite;
-        }
+/* HEART SHAPE (NO EMOJI) */
+.heart-shape {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: #ff69b4;
+    transform: rotate(45deg);
+    display: inline-block;
+    margin: 0 5px;
+}
 
-        @keyframes fadeHeart {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
+.heart-shape::before,
+.heart-shape::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background: #ff69b4;
+    border-radius: 50%;
+}
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.08); }
-            100% { transform: scale(1); }
-        }
+.heart-shape::before {
+    top: -12px;
+    left: 0;
+}
 
-        /* TYPEWRITER */
-        #typedText {
-            margin-top: 40px;
-            font-size: clamp(18px, 4.5vw, 22px);
-            max-width: 700px;
-            line-height: 1.8;
-            white-space: pre-line;
-        }
+.heart-shape::after {
+    left: -12px;
+    top: 0;
+}
 
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            background: #660033;
-            animation: blink 1s infinite;
-            margin-left: 3px;
-        }
+/* BIG HEART */
+.big-heart {
+    animation: fadeHeart 2s ease forwards, pulse 2s infinite;
+}
 
-        @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0; }
-        }
+.big-heart .heart-shape {
+    width: 120px;
+    height: 120px;
+}
 
-        /* GLOSSY PINK FLOATING HEART */
-        .floating-heart {
-            position: fixed;
-            transform: rotate(45deg);
-            animation: floatUp 6s linear infinite;
-            background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
-            border-radius: 6px;
-            box-shadow:
-                0 8px 15px rgba(0,0,0,0.2),
-                0 0 20px rgba(255, 105, 180, 0.6);
-        }
+.big-heart .heart-shape::before,
+.big-heart .heart-shape::after {
+    width: 120px;
+    height: 120px;
+}
 
-        .floating-heart::before,
-        .floating-heart::after {
-            content: "";
-            position: absolute;
-            background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
-            border-radius: 50%;
-        }
+.big-heart .heart-shape::before {
+    top: -60px;
+}
 
-        .floating-heart::before {
-            top: -50%;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+.big-heart .heart-shape::after {
+    left: -60px;
+}
 
-        .floating-heart::after {
-            left: -50%;
-            top: 0;
-            width: 100%;
-            height: 100%;
-        }
+@keyframes fadeHeart {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
 
-        @keyframes floatUp {
-            from {
-                transform: translateY(100vh) rotate(45deg) scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh) rotate(45deg) scale(1.2);
-                opacity: 0;
-            }
-        }
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
 
-    </style>
+/* TYPEWRITER */
+#typedText {
+    margin-top: 40px;
+    font-size: clamp(18px, 4.5vw, 22px);
+    max-width: 700px;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    background: #660033;
+    animation: blink 1s infinite;
+    margin-left: 3px;
+}
+
+@keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+}
+
+/* FLOATING HEARTS */
+.floating-heart {
+    position: fixed;
+    transform: rotate(45deg);
+    animation: floatUp 6s linear infinite;
+    background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
+    border-radius: 6px;
+}
+
+.floating-heart::before,
+.floating-heart::after {
+    content: "";
+    position: absolute;
+    background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
+    border-radius: 50%;
+}
+
+.floating-heart::before {
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-heart::after {
+    left: -50%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>
-            Vishwa <span class="pink-heart">❤</span><br><br>
-            Will you be my Valentine?
-        </h1>
+<div class="container">
+    <h1>
+        Vishwa <span class="heart-shape"></span><br><br>
+        Will you be my Valentine?
+    </h1>
 
-        <button id="yesBtn" onclick="showMessage()">Yes 💗</button>
-        <button id="noBtn" onclick="moveNo()">No 😜</button>
-    </div>
+    <button id="yesBtn" onclick="showMessage()">Yes</button>
+    <button id="noBtn" onclick="moveNo()">No</button>
+</div>
 
-    <script>
-        let yesScale = 1;
+<script>
 
-        function moveNo() {
-            const noBtn = document.getElementById("noBtn");
-            const yesBtn = document.getElementById("yesBtn");
+let yesScale = 1;
 
-            const padding = 20;
-            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
-            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
 
-            noBtn.style.left = Math.random() * maxX + "px";
-            noBtn.style.top = Math.random() * maxY + "px";
+    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
 
-            yesScale += 0.15;
-            yesBtn.style.transform = "scale(" + yesScale + ")";
-        }
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
 
-        function showMessage() {
+    yesScale += 0.15;
+    yesBtn.style.transform = "scale(" + yesScale + ")";
+}
 
-            document.body.style.opacity = "0";
+function showMessage() {
 
-            setTimeout(() => {
+    document.body.style.opacity = "0";
 
-                document.body.innerHTML = `
-                    <div style="
-                        height:100vh;
-                        display:flex;
-                        flex-direction:column;
-                        justify-content:center;
-                        align-items:center;
-                        text-align:center;
-                        padding:30px;
-                        background: linear-gradient(to right, #ffe6f2, #ffd6ec);
-                        color:#660033;
-                        font-family: Georgia, serif;
-                    ">
-                        <div class="big-heart pink-heart">❤</div>
-                        <div id="typedText"></div>
-                    </div>
-                `;
+    setTimeout(() => {
 
-                document.body.style.opacity = "1";
+        document.body.innerHTML = `
+        <div style="
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+            background: linear-gradient(to right, #fff0f5, #ffe4ec);
+            color:#660033;
+            font-family: Georgia, serif;
+            text-align:center;
+        ">
+            <div class="big-heart">
+                <div class="heart-shape"></div>
+            </div>
+            <div id="typedText"></div>
+        </div>
+        `;
 
-                startHearts();
-                typeWriter();
+        document.body.style.opacity = "1";
 
-            }, 1000);
-        }
+        startHearts();
+        typeWriter();
 
-        function typeWriter() {
+    }, 1000);
+}
 
-            const text = `My Vishwa 💗
+function typeWriter() {
+
+    const text = `My Vishwa,
 
 In just three months, our lives will officially become one…
 
-What started as an arranged beginning,
+What started as an arranged beginning
 has slowly become something my heart truly chose.
 
-I don’t just want you as my Valentine today…
-I want you as my forever in every tomorrow. 💍✨
+I don’t just want you today…
+I want you in every tomorrow.
 
-Thank you for being my soon-to-be wife. 💗`;
+Thank you for being my soon-to-be wife.`;
 
-            const speed = 40;
-            let i = 0;
-            const target = document.getElementById("typedText");
+    let i = 0;
+    const speed = 40;
+    const target = document.getElementById("typedText");
 
-            const cursor = document.createElement("span");
-            cursor.className = "cursor";
-            target.appendChild(cursor);
+    const cursor = document.createElement("span");
+    cursor.className = "cursor";
+    target.appendChild(cursor);
 
-            function typing() {
-                if (i < text.length) {
-                    target.insertBefore(document.createTextNode(text.charAt(i)), cursor);
-                    i++;
-                    setTimeout(typing, speed);
-                }
-            }
-
-            setTimeout(typing, 2000);
+    function typing() {
+        if (i < text.length) {
+            target.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+            i++;
+            setTimeout(typing, speed);
         }
+    }
 
-        function startHearts() {
-            setInterval(() => {
-                const heart = document.createElement("div");
-                heart.className = "floating-heart";
+    setTimeout(typing, 2000);
+}
 
-                const size = Math.random() * 20 + 20;
-                heart.style.width = size + "px";
-                heart.style.height = size + "px";
-                heart.style.left = Math.random() * 100 + "vw";
+function startHearts() {
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "floating-heart";
 
-                document.body.appendChild(heart);
+        const size = Math.random() * 20 + 20;
+        heart.style.width = size + "px";
+        heart.style.height = size + "px";
+        heart.style.left = Math.random() * 100 + "vw";
 
-                setTimeout(() => heart.remove(), 6000);
-            }, 500);
-        }
-    </script>
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }, 500);
+}
+
+</script>
 
 </body>
-
 </html>
-
