@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Vishwa ❤️</title>
+    <title>For Vishwa 💗</title>
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #ffe0ec, #ffd1e6);
-            color: #4a0033;
+            background: linear-gradient(to right, #fff0f5, #ffe4ec);
+            color: #660033;
             font-family: Georgia, serif;
             display: flex;
             justify-content: center;
@@ -42,19 +42,24 @@
         }
 
         #yesBtn {
-            background-color: #ff4d88;
+            background-color: #ff69b4;
             color: white;
         }
 
         #noBtn {
-            background-color: #ff99bb;
+            background-color: #ffb6d9;
             color: white;
             position: fixed;
         }
 
+        /* Pink Heart Style */
+        .pink-heart {
+            color: #ff69b4;
+        }
+
         /* BIG HEART */
         .big-heart {
-            font-size: clamp(70px, 18vw, 140px);
+            font-size: clamp(80px, 18vw, 140px);
             opacity: 0;
             animation: fadeHeart 2s ease forwards, pulse 2s ease-in-out infinite;
         }
@@ -82,7 +87,7 @@
         .cursor {
             display: inline-block;
             width: 2px;
-            background: #4a0033;
+            background: #660033;
             animation: blink 1s infinite;
             margin-left: 3px;
         }
@@ -92,23 +97,23 @@
             25%, 75% { opacity: 0; }
         }
 
-        /* GLOSSY FLOATING HEART */
+        /* GLOSSY PINK FLOATING HEART */
         .floating-heart {
             position: fixed;
             transform: rotate(45deg);
             animation: floatUp 6s linear infinite;
-            background: radial-gradient(circle at 30% 30%, #ff9ecb, #ff4d88);
+            background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
             border-radius: 6px;
             box-shadow:
                 0 8px 15px rgba(0,0,0,0.2),
-                0 0 15px rgba(255, 77, 136, 0.6);
+                0 0 20px rgba(255, 105, 180, 0.6);
         }
 
         .floating-heart::before,
         .floating-heart::after {
             content: "";
             position: absolute;
-            background: radial-gradient(circle at 30% 30%, #ff9ecb, #ff4d88);
+            background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
             border-radius: 50%;
         }
 
@@ -143,8 +148,12 @@
 <body>
 
     <div class="container">
-        <h1>Vishwa ❤️<br><br>Will you be my Valentine?</h1>
-        <button id="yesBtn" onclick="showMessage()">Yes ❤️</button>
+        <h1>
+            Vishwa <span class="pink-heart">❤</span><br><br>
+            Will you be my Valentine?
+        </h1>
+
+        <button id="yesBtn" onclick="showMessage()">Yes 💗</button>
         <button id="noBtn" onclick="moveNo()">No 😜</button>
     </div>
 
@@ -181,11 +190,11 @@
                         align-items:center;
                         text-align:center;
                         padding:30px;
-                        background: linear-gradient(to right, #ffe0ec, #ffd1e6);
-                        color:#4a0033;
+                        background: linear-gradient(to right, #ffe6f2, #ffd6ec);
+                        color:#660033;
                         font-family: Georgia, serif;
                     ">
-                        <div class="big-heart">❤️</div>
+                        <div class="big-heart pink-heart">❤</div>
                         <div id="typedText"></div>
                     </div>
                 `;
@@ -200,7 +209,7 @@
 
         function typeWriter() {
 
-            const text = `My Vishwa ❤️
+            const text = `My Vishwa 💗
 
 In just three months, our lives will officially become one…
 
@@ -210,7 +219,7 @@ has slowly become something my heart truly chose.
 I don’t just want you as my Valentine today…
 I want you as my forever in every tomorrow. 💍✨
 
-Thank you for being my soon-to-be wife.`;
+Thank you for being my soon-to-be wife. 💗`;
 
             const speed = 40;
             let i = 0;
