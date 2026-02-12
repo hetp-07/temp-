@@ -23,7 +23,6 @@
         }
 
         .container {
-            position: relative;
             padding: 20px;
         }
 
@@ -53,24 +52,16 @@
             position: fixed;
         }
 
-        /* Floating hearts */
         .heart {
             position: fixed;
             animation: float 6s linear infinite;
         }
 
         @keyframes float {
-            from {
-                transform: translateY(100vh);
-                opacity: 1;
-            }
-            to {
-                transform: translateY(-10vh);
-                opacity: 0;
-            }
+            from { transform: translateY(100vh); opacity: 1; }
+            to { transform: translateY(-10vh); opacity: 0; }
         }
 
-        /* Big romantic heart */
         .big-heart {
             font-size: clamp(70px, 18vw, 140px);
             opacity: 0;
@@ -88,18 +79,25 @@
             100% { transform: scale(1); }
         }
 
-        .line {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 1.5s ease;
+        #typedText {
+            margin-top: 40px;
             font-size: clamp(18px, 4.5vw, 22px);
             max-width: 700px;
             line-height: 1.8;
+            white-space: pre-line;
         }
 
-        .show {
-            opacity: 1;
-            transform: translateY(0);
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            background: #4a0033;
+            animation: blink 1s infinite;
+            margin-left: 3px;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
         }
     </style>
 </head>
@@ -108,7 +106,6 @@
 
     <div class="container">
         <h1>Vishwa ❤️<br><br>Will you be my Valentine?</h1>
-
         <button id="yesBtn" onclick="showMessage()">Yes ❤️</button>
         <button id="noBtn" onclick="moveNo()">No 😜</button>
     </div>
@@ -124,11 +121,8 @@
             const maxX = window.innerWidth - noBtn.offsetWidth - padding;
             const maxY = window.innerHeight - noBtn.offsetHeight - padding;
 
-            const randomX = Math.random() * maxX;
-            const randomY = Math.random() * maxY;
-
-            noBtn.style.left = randomX + "px";
-            noBtn.style.top = randomY + "px";
+            noBtn.style.left = Math.random() * maxX + "px";
+            noBtn.style.top = Math.random() * maxY + "px";
 
             yesScale += 0.15;
             yesBtn.style.transform = "scale(" + yesScale + ")";
@@ -136,7 +130,6 @@
 
         function showMessage() {
 
-            // Soft fade out
             document.body.style.opacity = "0";
 
             setTimeout(() => {
@@ -155,32 +148,49 @@
                         font-family: Georgia, serif;
                     ">
                         <div class="big-heart">❤️</div>
-
-                        <div id="lines" style="margin-top:40px;">
-                            <div class="line">My Vishwa ❤️</div>
-                            <div class="line">In just three months, our lives will officially become one…</div>
-                            <div class="line">What started as an arranged beginning,</div>
-                            <div class="line">has slowly become something my heart truly chose.</div>
-                            <div class="line">I don’t just want you as my Valentine today…</div>
-                            <div class="line">I want you as my forever in every tomorrow. 💍✨</div>
-                            <div class="line">Thank you for being my soon-to-be wife.</div>
-                        </div>
+                        <div id="typedText"></div>
                     </div>
                 `;
 
                 document.body.style.opacity = "1";
 
                 startHearts();
-
-                const lines = document.querySelectorAll(".line");
-
-                lines.forEach((line, index) => {
-                    setTimeout(() => {
-                        line.classList.add("show");
-                    }, 2500 + index * 1500);
-                });
+                typeWriter();
 
             }, 1000);
+        }
+
+        function typeWriter() {
+
+            const text = `My Vishwa ❤️
+
+In just three months, our lives will officially become one…
+
+What started as an arranged beginning,
+has slowly become something my heart truly chose.
+
+I don’t just want you as my Valentine today…
+I want you as my forever in every tomorrow. 💍✨
+
+Thank you for being my soon-to-be wife.`;
+
+            const speed = 40;
+            let i = 0;
+            const target = document.getElementById("typedText");
+
+            const cursor = document.createElement("span");
+            cursor.className = "cursor";
+            target.appendChild(cursor);
+
+            function typing() {
+                if (i < text.length) {
+                    target.insertBefore(document.createTextNode(text.charAt(i)), cursor);
+                    i++;
+                    setTimeout(typing, speed);
+                }
+            }
+
+            setTimeout(typing, 2000);
         }
 
         function startHearts() {
