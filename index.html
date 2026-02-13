@@ -4,185 +4,136 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Vishwa</title>
+<title>For Vishwa 💗</title>
 
 <style>
 
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to right, #fff0f5, #ffe4ec);
-    color: #660033;
-    font-family: Georgia, serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    text-align: center;
-    transition: opacity 1s ease;
+body{
+margin:0;
+padding:0;
+background:linear-gradient(to right,#fff0f5,#ffe4ec);
+color:#660033;
+font-family:Georgia,serif;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+overflow:hidden;
+text-align:center;
+transition:opacity 1s ease;
 }
 
-/* Container */
-.container {
-    padding: 20px;
+/* QUESTION SCREEN */
+
+.container{
+padding:20px;
+z-index:5;
 }
 
-h1 {
-    font-size: clamp(22px, 5vw, 36px);
-    margin-bottom: 30px;
+h1{
+font-size:clamp(22px,5vw,36px);
+margin-bottom:30px;
 }
 
-/* Buttons */
-button {
-    padding: 12px 25px;
-    font-size: clamp(16px, 4vw, 18px);
-    margin: 10px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s ease;
+button{
+padding:12px 25px;
+font-size:clamp(16px,4vw,18px);
+margin:10px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+transition:0.3s ease;
 }
 
-#yesBtn {
-    background-color: #ff69b4;
-    color: white;
+#yesBtn{
+background:#ff4d94;
+color:white;
 }
 
-#noBtn {
-    background-color: #ffb6d9;
-    color: white;
-    position: fixed;
+#noBtn{
+background:#ffb6d9;
+color:white;
+position:fixed;
 }
 
-/* HEART SHAPE (NO EMOJI) */
-.heart-shape {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    background: #ff69b4;
-    transform: rotate(45deg);
-    display: inline-block;
-    margin: 0 5px;
-}
+/* SMALL HEART AFTER VISHWA */
 
-.heart-shape::before,
-.heart-shape::after {
-    content: "";
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background: #ff69b4;
-    border-radius: 50%;
-}
-
-.heart-shape::before {
-    top: -12px;
-    left: 0;
-}
-
-.heart-shape::after {
-    left: -12px;
-    top: 0;
+.vishwa-heart{
+width:38px;
+height:38px;
+display:inline-block;
+vertical-align:middle;
+margin-left:6px;
 }
 
 /* BIG HEART */
-.big-heart {
-    animation: fadeHeart 2s ease forwards, pulse 2s infinite;
+
+.big-heart{
+width:120px;
+height:120px;
+opacity:0;
+animation:fadeHeart 2s ease forwards,pulse 2s ease-in-out infinite;
+z-index:5;
 }
 
-.big-heart .heart-shape {
-    width: 120px;
-    height: 120px;
+@keyframes fadeHeart{
+from{opacity:0;transform:scale(0.8);}
+to{opacity:1;transform:scale(1);}
 }
 
-.big-heart .heart-shape::before,
-.big-heart .heart-shape::after {
-    width: 120px;
-    height: 120px;
-}
-
-.big-heart .heart-shape::before {
-    top: -60px;
-}
-
-.big-heart .heart-shape::after {
-    left: -60px;
-}
-
-@keyframes fadeHeart {
-    from { opacity: 0; transform: scale(0.8); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-}
-
-/* TYPEWRITER */
-#typedText {
-    margin-top: 40px;
-    font-size: clamp(18px, 4.5vw, 22px);
-    max-width: 700px;
-    line-height: 1.8;
-    white-space: pre-line;
-}
-
-.cursor {
-    display: inline-block;
-    width: 2px;
-    background: #660033;
-    animation: blink 1s infinite;
-    margin-left: 3px;
-}
-
-@keyframes blink {
-    0%, 50%, 100% { opacity: 1; }
-    25%, 75% { opacity: 0; }
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
 }
 
 /* FLOATING HEARTS */
-.floating-heart {
-    position: fixed;
-    transform: rotate(45deg);
-    animation: floatUp 6s linear infinite;
-    background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
-    border-radius: 6px;
+
+.floating-heart{
+position:fixed;
+bottom:-60px;
+animation:floatUp linear infinite;
+pointer-events:none;
+z-index:1;
+opacity:0.7;
 }
 
-.floating-heart::before,
-.floating-heart::after {
-    content: "";
-    position: absolute;
-    background: radial-gradient(circle at 30% 30%, #ffc0cb, #ff69b4);
-    border-radius: 50%;
+@keyframes floatUp{
+from{
+transform:translateY(0) scale(0.8);
+opacity:0;
+}
+20%{
+opacity:0.8;
+}
+to{
+transform:translateY(-110vh) scale(1.2);
+opacity:0;
+}
 }
 
-.floating-heart::before {
-    top: -50%;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* TYPEWRITER */
+
+#typedText{
+margin-top:40px;
+font-size:clamp(18px,4.5vw,22px);
+max-width:700px;
+line-height:1.8;
+white-space:pre-line;
+z-index:5;
 }
 
-.floating-heart::after {
-    left: -50%;
-    top: 0;
-    width: 100%;
-    height: 100%;
+.cursor{
+display:inline-block;
+width:2px;
+background:#660033;
+animation:blink 1s infinite;
+margin-left:3px;
 }
 
-@keyframes floatUp {
-    from {
-        transform: translateY(100vh) rotate(45deg);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-10vh) rotate(45deg);
-        opacity: 0;
-    }
+@keyframes blink{
+0%,50%,100%{opacity:1;}
+25%,75%{opacity:0;}
 }
 
 </style>
@@ -191,114 +142,160 @@ button {
 <body>
 
 <div class="container">
-    <h1>
-        Vishwa <span class="heart-shape"></span><br><br>
-        Will you be my Valentine?
-    </h1>
+<h1>
+Vishwa
 
-    <button id="yesBtn" onclick="showMessage()">Yes</button>
-    <button id="noBtn" onclick="moveNo()">No</button>
+<span class="vishwa-heart">
+<svg viewBox="0 0 512 512">
+<defs>
+<linearGradient id="pinkGradSmall" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" stop-color="#ff9ac4"/>
+<stop offset="100%" stop-color="#ff2e83"/>
+</linearGradient>
+</defs>
+<path fill="url(#pinkGradSmall)" d="M256 472L216 432C96 320 32 256 32 160C32 96 96 32 160 32C200 32 232 48 256 80C280 48 312 32 352 32C416 32 480 96 480 160C480 256 416 320 296 432Z"/>
+</svg>
+</span>
+
+<br><br>
+Will you be my Valentine?
+</h1>
+
+<button id="yesBtn" onclick="showMessage()">Yes 💗</button>
+<button id="noBtn" onclick="moveNo()">No 😜</button>
 </div>
 
 <script>
 
-let yesScale = 1;
+let yesScale=1;
 
-function moveNo() {
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
+function moveNo(){
+const noBtn=document.getElementById("noBtn");
+const yesBtn=document.getElementById("yesBtn");
 
-    const maxX = window.innerWidth - noBtn.offsetWidth - 20;
-    const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+const padding=20;
 
-    noBtn.style.left = Math.random() * maxX + "px";
-    noBtn.style.top = Math.random() * maxY + "px";
+const maxX=window.innerWidth-noBtn.offsetWidth-padding;
+const maxY=window.innerHeight-noBtn.offsetHeight-padding;
 
-    yesScale += 0.15;
-    yesBtn.style.transform = "scale(" + yesScale + ")";
+noBtn.style.left=Math.random()*maxX+"px";
+noBtn.style.top=Math.random()*maxY+"px";
+
+yesScale+=0.15;
+yesBtn.style.transform="scale("+yesScale+")";
 }
 
-function showMessage() {
+function showMessage(){
 
-    document.body.style.opacity = "0";
+document.body.style.opacity="0";
 
-    setTimeout(() => {
+setTimeout(()=>{
 
-        document.body.innerHTML = `
-        <div style="
-            height:100vh;
-            display:flex;
-            flex-direction:column;
-            justify-content:center;
-            align-items:center;
-            padding:30px;
-            background: linear-gradient(to right, #fff0f5, #ffe4ec);
-            color:#660033;
-            font-family: Georgia, serif;
-            text-align:center;
-        ">
-            <div class="big-heart">
-                <div class="heart-shape"></div>
-            </div>
-            <div id="typedText"></div>
-        </div>
-        `;
+document.body.innerHTML=`
 
-        document.body.style.opacity = "1";
+<div id="heartContainer"></div>
 
-        startHearts();
-        typeWriter();
+<div style="
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:30px;
+background:linear-gradient(to right,#ffe6f2,#ffd6ec);
+color:#660033;
+font-family:Georgia,serif;
+position:relative;
+z-index:5;
+">
 
-    }, 1000);
+<div class="big-heart">
+
+<svg viewBox="0 0 512 512">
+<defs>
+<linearGradient id="pinkGradBig" x1="0%" y1="0%" x2="0%" y2="100%">
+<stop offset="0%" stop-color="#ff9ac4"/>
+<stop offset="100%" stop-color="#ff2e83"/>
+</linearGradient>
+</defs>
+<path fill="url(#pinkGradBig)" d="M256 472L216 432C96 320 32 256 32 160C32 96 96 32 160 32C200 32 232 48 256 80C280 48 312 32 352 32C416 32 480 96 480 160C480 256 416 320 296 432Z"/>
+</svg>
+
+</div>
+
+<div id="typedText"></div>
+
+</div>
+`;
+
+document.body.style.opacity="1";
+startHearts();
+typeWriter();
+
+},1000);
 }
 
-function typeWriter() {
+function startHearts(){
 
-    const text = `My Vishwa,
+setInterval(()=>{
+
+const heart=document.createElement("div");
+heart.className="floating-heart";
+
+const size=Math.random()*20+20;
+const duration=Math.random()*5+6;
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.width=size+"px";
+heart.style.height=size+"px";
+heart.style.animationDuration=duration+"s";
+
+heart.innerHTML=`
+<svg viewBox="0 0 512 512">
+<path fill="#ff69b4" d="M256 472L216 432C96 320 32 256 32 160C32 96 96 32 160 32C200 32 232 48 256 80C280 48 312 32 352 32C416 32 480 96 480 160C480 256 416 320 296 432Z"/>
+</svg>
+`;
+
+document.body.appendChild(heart);
+
+setTimeout(()=>heart.remove(),11000);
+
+},700);
+}
+
+function typeWriter(){
+
+const text=`My Vishwa 💗
 
 In just three months, our lives will officially become one…
 
-What started as an arranged beginning
+What started as an arranged beginning,
 has slowly become something my heart truly chose.
 
-I don’t just want you today…
-I want you in every tomorrow.
+I don’t just want you as my Valentine today…
+I want you as my forever in every tomorrow. 💍✨
 
-Thank you for being my soon-to-be wife.`;
+Thank you for being my soon-to-be wife. 💗`;
 
-    let i = 0;
-    const speed = 40;
-    const target = document.getElementById("typedText");
+const speed=40;
+let i=0;
 
-    const cursor = document.createElement("span");
-    cursor.className = "cursor";
-    target.appendChild(cursor);
+const target=document.getElementById("typedText");
 
-    function typing() {
-        if (i < text.length) {
-            target.insertBefore(document.createTextNode(text.charAt(i)), cursor);
-            i++;
-            setTimeout(typing, speed);
-        }
-    }
+const cursor=document.createElement("span");
+cursor.className="cursor";
+target.appendChild(cursor);
 
-    setTimeout(typing, 2000);
+function typing(){
+if(i<text.length){
+target.insertBefore(document.createTextNode(text.charAt(i)),cursor);
+i++;
+setTimeout(typing,speed);
+}
 }
 
-function startHearts() {
-    setInterval(() => {
-        const heart = document.createElement("div");
-        heart.className = "floating-heart";
-
-        const size = Math.random() * 20 + 20;
-        heart.style.width = size + "px";
-        heart.style.height = size + "px";
-        heart.style.left = Math.random() * 100 + "vw";
-
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 6000);
-    }, 500);
+setTimeout(typing,2000);
 }
 
 </script>
