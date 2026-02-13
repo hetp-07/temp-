@@ -53,8 +53,16 @@ color:white;
 #noBtn{
 background:#ffb6d9;
 color:white;
-position:fixed;
 }
+  
+.btn-group{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
 
 /* SMALL HEART AFTER VISHWA */
 
@@ -160,9 +168,10 @@ Vishwa
 <br><br>
 Will you be my Valentine?
 </h1>
-
+<div class="btn-group">
 <button id="yesBtn" onclick="showMessage()">Yes 💗</button>
 <button id="noBtn" onclick="moveNo()">No 😜</button>
+</div>
 </div>
 
 <script>
@@ -302,4 +311,5 @@ setTimeout(typing,2000);
 
 </body>
 </html>
+
 
